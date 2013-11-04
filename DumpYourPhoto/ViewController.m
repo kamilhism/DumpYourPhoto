@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+
 #import <AFNetworking.h>
 #import <ObjectiveGumbo.h>
 
@@ -29,7 +30,7 @@
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
  
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Can not log in. Please check username and password." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-    
+
     [manager GET:@"https://dumpyourphoto.com" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSString *csrfToken = [self valueOfHtmlNode:@"form_dyp_csrf_token" :operation.responseString];
@@ -45,7 +46,7 @@
             NSString *apiKey = [self valueOfHtmlNode:@"api-key" :operation.responseString];
             NSLog(@"%@", apiKey);
             
-            if ([apiKey isEqualToString:@""]) { // dev mode is not activated
+            if ([apiKey length] == 0) { // dev mode is not activated
                 
                 NSString *csrfToken = [self valueOfHtmlNode:@"form_dyp_csrf_token" :operation.responseString];
                 
@@ -59,7 +60,13 @@
                 [manager POST:@"https://dumpyourphoto.com/user/developer" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
                     
                     NSString *apiKey = responseObject[@"key"];
-                    NSLog(@"%@", apiKey);
+                    
+                    if ([apiKey length] == 0) {
+                        [alert show];
+                        return;
+                    }
+                    
+                    NSLog(@"dev activated: %@", apiKey);
                 
                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                     [alert show];
