@@ -25,37 +25,62 @@
 
 - (IBAction) signinTapped
 {
-
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    //manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+ 
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Can not log in. Please check username and password." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    
     [manager GET:@"https://dumpyourphoto.com" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        OGNode *data = [ObjectiveGumbo parseDocumentWithString:operation.responseString];
-        OGElement *input = [data elementsWithID:@"form_dyp_csrf_token"].firstObject;
-        NSString *csrf_token = input.attributes[@"value"];
+        NSString *csrfToken = [self valueOfHtmlNode:@"form_dyp_csrf_token" :operation.responseString];
         
         NSDictionary *parameters = @{
             @"username": _usernameField.text,
             @"password": _passwordField.text,
-            @"dyp_csrf_token": csrf_token
+            @"dyp_csrf_token": csrfToken
         };
         
         [manager POST:@"https://dumpyourphoto.com/user/log_in" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"JSON: %@", operation.responseString);
+            
+            NSString *apiKey = [self valueOfHtmlNode:@"api-key" :operation.responseString];
+            NSLog(@"%@", apiKey);
+            
+            if ([apiKey isEqualToString:@""]) { // dev mode is not activated
+                
+                NSString *csrfToken = [self valueOfHtmlNode:@"form_dyp_csrf_token" :operation.responseString];
+                
+                NSDictionary *parameters = @{
+                   @"developer": @"true",
+                   @"dyp_csrf_token": csrfToken
+                };
+                
+                manager.responseSerializer = [AFJSONResponseSerializer serializer];
+                manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+                [manager POST:@"https://dumpyourphoto.com/user/developer" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    
+                    NSString *apiKey = responseObject[@"key"];
+                    NSLog(@"%@", apiKey);
+                
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    [alert show];
+                }];
+            }
+            
+            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Error: %@", error);
+            [alert show];
         }];
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+        [alert show];
     }];
-    
-    /*
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Can not log in. Please check username and password." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-    [alert show];
-    */
+}
+
+- (NSString *)valueOfHtmlNode:(NSString *)elementId :(NSString *)html{
+    OGNode *structure = [ObjectiveGumbo parseDocumentWithString:html];
+    OGElement *input = [structure elementsWithID:elementId].firstObject;
+    return input.attributes[@"value"];
 }
 
 @end
