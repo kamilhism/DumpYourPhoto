@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController{
+    IBOutlet UITextField *_usernameField;
+    IBOutlet UITextField *_passwordField;
+}
+
+- (IBAction) signinTapped;
 
 @end
