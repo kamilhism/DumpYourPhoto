@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AlbumsViewController : UIViewController
+@interface AlbumsViewController : UITableViewController
+
+@property (strong, nonatomic) IBOutlet UITableView *albumsTableView;
+
+- (IBAction)exitTapped:(id)sender;
 
 @end

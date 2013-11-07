@@ -29,10 +29,10 @@
 	// Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)exitTapped:(id)sender {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"apiKey"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-
 @end
