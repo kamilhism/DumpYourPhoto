@@ -22,6 +22,7 @@
 		C37074B61827FC0100024CA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37074981827FC0000024CA4 /* UIKit.framework */; };
 		C37074BE1827FC0100024CA4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C37074BC1827FC0100024CA4 /* InfoPlist.strings */; };
 		C37074C01827FC0100024CA4 /* DumpYourPhotoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C37074BF1827FC0100024CA4 /* DumpYourPhotoTests.m */; };
+		C3C84F1B182C2D2D003EAFD9 /* AlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C84F1A182C2D2D003EAFD9 /* AlbumsViewController.m */; };
 		C3F1AF0C18283E4A00B519FF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F1AF0B18283E4A00B519FF /* Security.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,8 @@
 		C37074BB1827FC0100024CA4 /* DumpYourPhotoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DumpYourPhotoTests-Info.plist"; sourceTree = "<group>"; };
 		C37074BD1827FC0100024CA4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C37074BF1827FC0100024CA4 /* DumpYourPhotoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DumpYourPhotoTests.m; sourceTree = "<group>"; };
+		C3C84F19182C2D2D003EAFD9 /* AlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumsViewController.h; sourceTree = "<group>"; };
+		C3C84F1A182C2D2D003EAFD9 /* AlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsViewController.m; sourceTree = "<group>"; };
 		C3F1AF0B18283E4A00B519FF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -127,6 +130,8 @@
 				C37074A61827FC0100024CA4 /* Main.storyboard */,
 				C37074A91827FC0100024CA4 /* ViewController.h */,
 				C37074AA1827FC0100024CA4 /* ViewController.m */,
+				C3C84F19182C2D2D003EAFD9 /* AlbumsViewController.h */,
+				C3C84F1A182C2D2D003EAFD9 /* AlbumsViewController.m */,
 				C37074AC1827FC0100024CA4 /* Images.xcassets */,
 				C370749B1827FC0100024CA4 /* Supporting Files */,
 			);
@@ -294,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3C84F1B182C2D2D003EAFD9 /* AlbumsViewController.m in Sources */,
 				C37074AB1827FC0100024CA4 /* ViewController.m in Sources */,
 				C37074A51827FC0100024CA4 /* AppDelegate.m in Sources */,
 				C37074A11827FC0100024CA4 /* main.m in Sources */,

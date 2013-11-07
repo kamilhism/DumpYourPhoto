@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "AlbumsViewController.h"
 
 #import <AFNetworking.h>
 #import <ObjectiveGumbo.h>
@@ -20,9 +21,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    if ([[[NSUserDefaults standardUserDefaults] stringForKey:@"apiKey"] length] != 0) {
+        [self performSegueWithIdentifier:@"signInSeque" sender:nil];
+    }
+}
 
 - (IBAction) signinTapped
 {
@@ -44,7 +49,6 @@
         [manager POST:@"https://dumpyourphoto.com/user/log_in" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             NSString *apiKey = [self valueOfHtmlNode:@"api-key" :operation.responseString];
-            NSLog(@"%@", apiKey);
             
             if ([apiKey length] == 0) { // dev mode is not activated
                 
@@ -63,14 +67,16 @@
                     
                     if ([apiKey length] == 0) {
                         [alert show];
-                        return;
+                    } else {
+                        [self authComplete:apiKey];
                     }
                     
-                    NSLog(@"dev activated: %@", apiKey);
                 
                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                     [alert show];
                 }];
+            } else {
+                [self authComplete:apiKey];
             }
             
             
@@ -82,6 +88,19 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [alert show];
     }];
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    return NO;
+}
+
+- (void)authComplete:(NSString *)apiKey {
+    [[NSUserDefaults standardUserDefaults] setValue:apiKey forKey:@"apiKey"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSLog(@"%@", apiKey);
+    
+    [self performSegueWithIdentifier:@"signInSeque" sender:nil];
 }
 
 - (NSString *)valueOfHtmlNode:(NSString *)elementId :(NSString *)html{
