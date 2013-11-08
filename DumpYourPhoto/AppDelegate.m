@@ -12,6 +12,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSString *apiKey = [[NSUserDefaults standardUserDefaults] stringForKey:@"apiKey"];
+    if (apiKey.length > 0)
+        self.apiKey = apiKey;
+    
     // Override point for customization after application launch.
     return YES;
 }

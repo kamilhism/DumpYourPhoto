@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7F7F6387F87241429A08A5B4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0E62DD44554183A61BC61A /* libPods.a */; };
+		C34DE50B182CD6080012581F /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = C34DE50A182CD6080012581F /* Album.m */; };
+		C34DE50F182CD63E0012581F /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C34DE50E182CD63E0012581F /* Photo.m */; };
+		C34DE512182CDBE60012581F /* DumpYourPhotoApiEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C34DE511182CDBE60012581F /* DumpYourPhotoApiEngine.m */; };
 		C37074951827FC0000024CA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37074941827FC0000024CA4 /* Foundation.framework */; };
 		C37074971827FC0000024CA4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37074961827FC0000024CA4 /* CoreGraphics.framework */; };
 		C37074991827FC0000024CA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37074981827FC0000024CA4 /* UIKit.framework */; };
@@ -39,6 +42,12 @@
 /* Begin PBXFileReference section */
 		4F7178C755CC4A4E982732B1 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		9C0E62DD44554183A61BC61A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C34DE509182CD6080012581F /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Album.h; path = Models/Album.h; sourceTree = "<group>"; };
+		C34DE50A182CD6080012581F /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Album.m; path = Models/Album.m; sourceTree = "<group>"; };
+		C34DE50D182CD63E0012581F /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Models/Photo.h; sourceTree = "<group>"; };
+		C34DE50E182CD63E0012581F /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = Models/Photo.m; sourceTree = "<group>"; };
+		C34DE510182CDBE60012581F /* DumpYourPhotoApiEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DumpYourPhotoApiEngine.h; path = Helpers/DumpYourPhotoApiEngine.h; sourceTree = "<group>"; };
+		C34DE511182CDBE60012581F /* DumpYourPhotoApiEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DumpYourPhotoApiEngine.m; path = Helpers/DumpYourPhotoApiEngine.m; sourceTree = "<group>"; };
 		C37074911827FC0000024CA4 /* DumpYourPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DumpYourPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C37074941827FC0000024CA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C37074961827FC0000024CA4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -89,6 +98,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C34DE50C182CD6140012581F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C34DE509182CD6080012581F /* Album.h */,
+				C34DE50A182CD6080012581F /* Album.m */,
+				C34DE50D182CD63E0012581F /* Photo.h */,
+				C34DE50E182CD63E0012581F /* Photo.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C34DE514182CDBFE0012581F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C34DE510182CDBE60012581F /* DumpYourPhotoApiEngine.h */,
+				C34DE511182CDBE60012581F /* DumpYourPhotoApiEngine.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		C37074881827FC0000024CA4 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +163,8 @@
 				C3C84F1A182C2D2D003EAFD9 /* AlbumsViewController.m */,
 				C37074AC1827FC0100024CA4 /* Images.xcassets */,
 				C370749B1827FC0100024CA4 /* Supporting Files */,
+				C34DE50C182CD6140012581F /* Models */,
+				C34DE514182CDBFE0012581F /* Helpers */,
 			);
 			path = DumpYourPhoto;
 			sourceTree = "<group>";
@@ -299,10 +330,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C34DE50F182CD63E0012581F /* Photo.m in Sources */,
 				C3C84F1B182C2D2D003EAFD9 /* AlbumsViewController.m in Sources */,
 				C37074AB1827FC0100024CA4 /* ViewController.m in Sources */,
 				C37074A51827FC0100024CA4 /* AppDelegate.m in Sources */,
+				C34DE50B182CD6080012581F /* Album.m in Sources */,
 				C37074A11827FC0100024CA4 /* main.m in Sources */,
+				C34DE512182CDBE60012581F /* DumpYourPhotoApiEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

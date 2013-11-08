@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AlbumsViewController.h"
+#import "AppDelegate.h"
 
 #import <AFNetworking.h>
 #import <ObjectiveGumbo.h>
@@ -97,6 +98,8 @@
 - (void)authComplete:(NSString *)apiKey {
     [[NSUserDefaults standardUserDefaults] setValue:apiKey forKey:@"apiKey"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    appDelegate.apiKey = apiKey;
     
     NSLog(@"%@", apiKey);
     

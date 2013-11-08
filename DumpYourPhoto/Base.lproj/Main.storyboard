@@ -63,7 +63,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="qon-sv-h4Y" detailTextLabel="cqZ-lh-Apc" style="IBUITableViewCellStyleSubtitle" id="8Ke-5T-cBi">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="qon-sv-h4Y" detailTextLabel="cqZ-lh-Apc" style="IBUITableViewCellStyleSubtitle" id="8Ke-5T-cBi">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Ke-5T-cBi" id="544-tG-UrT">
@@ -88,6 +88,9 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="U0j-ZA-YZ6" id="CPI-R6-5wd"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Albums" id="R9v-ph-rJE">
                         <barButtonItem key="leftBarButtonItem" title="Exit" id="MwK-0F-Uvn">
@@ -97,7 +100,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="albumsTableView" destination="nC4-WG-dTX" id="VfH-lp-jOR"/>
+                        <outlet property="tableView" destination="nC4-WG-dTX" id="oVo-rh-kNK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1RL-NT-5HI" userLabel="First Responder" sceneMemberID="firstResponder"/>

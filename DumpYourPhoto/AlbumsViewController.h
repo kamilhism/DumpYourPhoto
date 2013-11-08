@@ -10,8 +10,6 @@
 
 @interface AlbumsViewController : UITableViewController
 
-@property (strong, nonatomic) IBOutlet UITableView *albumsTableView;
-
 - (IBAction)exitTapped:(id)sender;
 
 @end
