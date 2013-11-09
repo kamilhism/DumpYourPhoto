@@ -11,5 +11,7 @@
 @interface DumpYourPhotoApiEngine : NSObject
 
 + (void)getAlbums:(void (^)(NSArray *array))callback;
++ (void)createAlbum:(NSDictionary *)albumData
+           callback:(void (^)(bool success, NSString *error))callback;
 
 @end

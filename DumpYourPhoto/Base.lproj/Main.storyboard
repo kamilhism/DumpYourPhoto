@@ -98,6 +98,11 @@
                                 <action selector="exitTapped:" destination="U0j-ZA-YZ6" id="vZy-S8-zva"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="+" id="DhD-Gf-B3u">
+                            <connections>
+                                <segue destination="qhh-RF-xTK" kind="push" id="96v-6I-APP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="nC4-WG-dTX" id="oVo-rh-kNK"/>
@@ -106,6 +111,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1RL-NT-5HI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1205" y="759"/>
+        </scene>
+        <!--Create Album View Controller - Create Album-->
+        <scene sceneID="i9b-1g-dpI">
+            <objects>
+                <viewController title="Create Album" id="qhh-RF-xTK" customClass="CreateAlbumViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jez-xO-StY"/>
+                        <viewControllerLayoutGuide type="bottom" id="rp0-8D-XY2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xqQ-85-Iqa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Album name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eqD-g3-mhD">
+                                <rect key="frame" x="20" y="100" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Public" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3Q-lk-MI9">
+                                <rect key="frame" x="20" y="153" width="109" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CN1-gl-nbN">
+                                <rect key="frame" x="251" y="145" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="y2r-1v-wSU">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="yvJ-Gd-MzW">
+                            <connections>
+                                <action selector="doneTapped:" destination="qhh-RF-xTK" id="qFo-Z4-Gzy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="albumNameField" destination="eqD-g3-mhD" id="bkU-nm-nZG"/>
+                        <outlet property="isPublicSwitch" destination="CN1-gl-nbN" id="Q4K-u7-w17"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nEw-Rg-k0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1205" y="1514"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EV3-f8-LlJ">

@@ -28,6 +28,21 @@
     }];
 }
 
++ (void)createAlbum:(NSDictionary *)albumData
+           callback:(void (^)(bool success, NSString *error))callback {
+
+    NSString *urlString = [NSString stringWithFormat:@"%@/albums", apiUrl];
+    
+    NSMutableDictionary *parameters = [albumData mutableCopy];
+    [parameters addEntriesFromDictionary:[self apiKeyAsParam]];
+    
+    [[self requestManager] POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        callback(YES, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        callback(NO, error.localizedDescription);
+    }];
+}
+
 + (NSArray *)albumsArray:(id)albums {
     NSMutableArray *albumsModels = [NSMutableArray array];
     for (id album in albums) {
@@ -42,6 +57,7 @@
 + (AFHTTPRequestOperationManager *) requestManager {
     AFJSONRequestSerializer *serializer = [AFJSONRequestSerializer serializer];
     [serializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [serializer setHTTPMethodsEncodingParametersInURI:[NSSet setWithObjects:@"GET", @"HEAD", @"POST", nil]];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = serializer;
