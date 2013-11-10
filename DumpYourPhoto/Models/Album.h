@@ -2,18 +2,24 @@
 //  Album.h
 //  DumpYourPhoto
 //
-//  Created by Администратор on 11/8/13.
+//  Created by Администратор on 11/9/13.
 //  Copyright (c) 2013 KamilHism. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Album : NSObject
 
-@property (nonatomic) uint64_t albumId;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *hash;
-@property (nonatomic) bool isPublic;
-@property (nonatomic) uint64_t photosCount;
+@interface Album : NSManagedObject
+
+@property (nonatomic, retain) NSNumber * albumId;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * albumHash;
+@property (nonatomic, retain) NSNumber * isPublic;
+
+- (void)setupWithObject:(id)albumData;
+
++ (NSArray *)findAllAlbums;
++ (Album *)findAlbumWithId:(NSNumber *)albumId;
 
 @end

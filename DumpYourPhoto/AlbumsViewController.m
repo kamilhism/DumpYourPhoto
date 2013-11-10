@@ -40,6 +40,14 @@
     }];
 }
 
+-(void) viewDidAppear:(BOOL)animated {
+    NSArray *albums = [Album findAllAlbums];
+    if ([self albumsArray].count != albums.count) {
+        self.albumsArray = [albums mutableCopy];
+        [self.tableView reloadData];
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.albumsArray.count;
 }
@@ -49,7 +57,7 @@
     
     Album *album = self.albumsArray[indexPath.row];
     cell.textLabel.text = album.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%llu", album.photosCount];
+    cell.detailTextLabel.text = @"1";
     
     return cell;
 }

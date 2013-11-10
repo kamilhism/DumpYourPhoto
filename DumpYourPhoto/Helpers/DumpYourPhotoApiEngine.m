@@ -9,6 +9,7 @@
 #import "DumpYourPhotoApiEngine.h"
 #import "AppDelegate.h"
 #import "Album.h"
+#import "CoreDataHelper.h"
 
 #import <AFNetworking.h>
 
@@ -37,6 +38,11 @@
     [parameters addEntriesFromDictionary:[self apiKeyAsParam]];
     
     [[self requestManager] POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Album" inManagedObjectContext:[CoreDataHelper sharedInstance].moc];
+        Album *albumModel = [[Album alloc] initWithEntity:entity insertIntoManagedObjectContext:[CoreDataHelper sharedInstance].moc];
+        [albumModel setupWithObject:responseObject];
+        [[CoreDataHelper sharedInstance].moc save:nil];
+        
         callback(YES, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         callback(NO, error.localizedDescription);
@@ -46,11 +52,17 @@
 + (NSArray *)albumsArray:(id)albums {
     NSMutableArray *albumsModels = [NSMutableArray array];
     for (id album in albums) {
-        Album *albumModel = [[Album alloc] init];
-        albumModel.name = album[@"name"];
-        albumModel.photosCount = [album[@"photos"] longLongValue];
+        NSNumber *albumId = album[@"id"];
+        Album *albumModel = [Album findAlbumWithId:albumId];
+        if (!albumModel) {
+            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Album" inManagedObjectContext:[CoreDataHelper sharedInstance].moc];
+            albumModel = [[Album alloc] initWithEntity:entity insertIntoManagedObjectContext:[CoreDataHelper sharedInstance].moc];
+        }
+        [albumModel setupWithObject:album];
         [albumsModels addObject:albumModel];
     }
+    [[CoreDataHelper sharedInstance].moc save:nil];
+    
     return albumsModels;
 }
 

@@ -2,26 +2,20 @@
 //  Photo.h
 //  DumpYourPhoto
 //
-//  Created by Администратор on 11/8/13.
+//  Created by Администратор on 11/9/13.
 //  Copyright (c) 2013 KamilHism. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Photo : NSObject
 
-@property (nonatomic) uint64_t photoId;
+@interface Photo : NSManagedObject
 
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *file_name;
-
-@property (nonatomic) uint64_t views;
-
-@property (nonatomic, strong) NSString *hash;
-
-@property (nonatomic, strong) NSURL *smallUrl;
-@property (nonatomic, strong) NSURL *mediumUrl;
-@property (nonatomic, strong) NSURL *largeUrl;
-@property (nonatomic, strong) NSURL *fullUrl;
+@property (nonatomic, retain) NSNumber * photoId;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * fileName;
+@property (nonatomic, retain) NSNumber * viewsCount;
+@property (nonatomic, retain) NSString * photoHash;
 
 @end
