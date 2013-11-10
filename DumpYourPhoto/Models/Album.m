@@ -30,6 +30,14 @@
     return [[CoreDataHelper sharedInstance].moc executeFetchRequest:fetchRequest error:nil];
 }
 
++ (void)clearAlbums{
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Album"];
+    NSArray *albums = [[CoreDataHelper sharedInstance].moc executeFetchRequest:fetchRequest error:nil];
+    for (NSManagedObject *album in albums) {
+        [[CoreDataHelper sharedInstance].moc deleteObject:album];
+    }
+}
+
 + (Album *)findAlbumWithId:(NSNumber *)albumId {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Album"];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"albumId = %llu", albumId.longLongValue];

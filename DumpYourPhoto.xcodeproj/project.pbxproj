@@ -30,6 +30,7 @@
 		C37074C01827FC0100024CA4 /* DumpYourPhotoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C37074BF1827FC0100024CA4 /* DumpYourPhotoTests.m */; };
 		C3C148A6182E304600F4413F /* CreateAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C148A5182E304600F4413F /* CreateAlbumViewController.m */; };
 		C3C84F1B182C2D2D003EAFD9 /* AlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C84F1A182C2D2D003EAFD9 /* AlbumsViewController.m */; };
+		C3CB6167183026FB00E149E7 /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB6166183026FB00E149E7 /* PhotosViewController.m */; };
 		C3F1AF0C18283E4A00B519FF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F1AF0B18283E4A00B519FF /* Security.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,8 @@
 		C3C148A5182E304600F4413F /* CreateAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAlbumViewController.m; sourceTree = "<group>"; };
 		C3C84F19182C2D2D003EAFD9 /* AlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumsViewController.h; sourceTree = "<group>"; };
 		C3C84F1A182C2D2D003EAFD9 /* AlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsViewController.m; sourceTree = "<group>"; };
+		C3CB6165183026FB00E149E7 /* PhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosViewController.h; sourceTree = "<group>"; };
+		C3CB6166183026FB00E149E7 /* PhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosViewController.m; sourceTree = "<group>"; };
 		C3F1AF0B18283E4A00B519FF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -177,6 +180,8 @@
 				C3C84F1A182C2D2D003EAFD9 /* AlbumsViewController.m */,
 				C3C148A4182E304600F4413F /* CreateAlbumViewController.h */,
 				C3C148A5182E304600F4413F /* CreateAlbumViewController.m */,
+				C3CB6165183026FB00E149E7 /* PhotosViewController.h */,
+				C3CB6166183026FB00E149E7 /* PhotosViewController.m */,
 				C37074AC1827FC0100024CA4 /* Images.xcassets */,
 				C370749B1827FC0100024CA4 /* Supporting Files */,
 				C34DE50C182CD6140012581F /* Models */,
@@ -355,6 +360,7 @@
 				C37074AB1827FC0100024CA4 /* ViewController.m in Sources */,
 				C37074A51827FC0100024CA4 /* AppDelegate.m in Sources */,
 				C37074A11827FC0100024CA4 /* main.m in Sources */,
+				C3CB6167183026FB00E149E7 /* PhotosViewController.m in Sources */,
 				C34EB60A182EE6DF00807326 /* CoreDataHelper.m in Sources */,
 				C34DE512182CDBE60012581F /* DumpYourPhotoApiEngine.m in Sources */,
 			);

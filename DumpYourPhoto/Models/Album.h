@@ -21,5 +21,6 @@
 
 + (NSArray *)findAllAlbums;
 + (Album *)findAlbumWithId:(NSNumber *)albumId;
++ (void)clearAlbums;
 
 @end

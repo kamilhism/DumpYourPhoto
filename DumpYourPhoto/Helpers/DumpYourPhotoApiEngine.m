@@ -50,6 +50,8 @@
 }
 
 + (NSArray *)albumsArray:(id)albums {
+    [Album clearAlbums];
+    
     NSMutableArray *albumsModels = [NSMutableArray array];
     for (id album in albums) {
         NSNumber *albumId = album[@"id"];
