@@ -9,9 +9,9 @@
 #import "AlbumsViewController.h"
 #import "DumpYourPhotoApiEngine.h"
 #import "Album.h"
+#import "PhotosViewController.h"
 
 @interface AlbumsViewController ()
-
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *albumsArray;
@@ -32,7 +32,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
     [DumpYourPhotoApiEngine getAlbums:^(NSArray *array) {
         self.albumsArray = [array mutableCopy];
@@ -41,6 +40,10 @@
 }
 
 -(void) viewDidAppear:(BOOL)animated {
+    [self setupAlbumsFromDatabase];
+}
+
+-(void)setupAlbumsFromDatabase {
     NSArray *albums = [Album findAllAlbums];
     if ([self albumsArray].count != albums.count) {
         self.albumsArray = [albums mutableCopy];
@@ -57,9 +60,20 @@
     
     Album *album = self.albumsArray[indexPath.row];
     cell.textLabel.text = album.name;
-    cell.detailTextLabel.text = @"1";
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ photo%@", album.photosCount, [album.photosCount intValue] == 1 ? @"" : @"s"];
     
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showPhotos"]) {
+        UITableViewCell *cell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        int rowNumber = indexPath.row;
+        Album *album = self.albumsArray[rowNumber];
+        PhotosViewController *controller = segue.destinationViewController;
+        controller.album = album;
+    }
 }
 
 - (IBAction)exitTapped:(id)sender {

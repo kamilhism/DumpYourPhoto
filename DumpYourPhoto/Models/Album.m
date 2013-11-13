@@ -2,25 +2,29 @@
 //  Album.m
 //  DumpYourPhoto
 //
-//  Created by Администратор on 11/9/13.
+//  Created by Администратор on 11/13/13.
 //  Copyright (c) 2013 KamilHism. All rights reserved.
 //
 
 #import "Album.h"
+#import "Photo.h"
 #import "CoreDataHelper.h"
 
 @implementation Album
 
-@dynamic albumId;
-@dynamic name;
 @dynamic albumHash;
+@dynamic albumId;
 @dynamic isPublic;
+@dynamic name;
+@dynamic photos;
+@dynamic photosCount;
 
 - (void)setupWithObject:(id)albumData{
     self.albumId = [NSNumber numberWithInteger:[albumData[@"id"] integerValue]];
     self.name = albumData[@"name"];
     self.albumHash = albumData[@"hash"];
     self.isPublic = [NSNumber numberWithInteger:[albumData[@"public"] integerValue]];
+    self.photosCount = [NSNumber numberWithInteger:[albumData[@"photos"] integerValue]];
 }
 
 + (NSArray *)findAllAlbums {

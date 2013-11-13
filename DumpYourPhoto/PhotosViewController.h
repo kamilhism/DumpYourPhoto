@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Album.h"
 
 @interface PhotosViewController : UICollectionViewController
+
+@property (nonatomic, strong) Album *album;
 
 @end

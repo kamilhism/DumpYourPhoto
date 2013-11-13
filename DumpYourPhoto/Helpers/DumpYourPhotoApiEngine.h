@@ -8,10 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Album.h"
+#import "Photo.h"
+
 @interface DumpYourPhotoApiEngine : NSObject
 
 + (void)getAlbums:(void (^)(NSArray *array))callback;
 + (void)createAlbum:(NSDictionary *)albumData
            callback:(void (^)(bool success, NSString *error))callback;
+
++ (void)getPhotosForAlbum:(Album *)album
+                 callback:(void (^)(NSArray *array))callback;
+
++ (void)getImageFor:(Photo *)photo
+           withSize:(NSString *)size
+           callback:(void (^)(UIImage *image))callback;
 
 @end

@@ -10,8 +10,6 @@
 		7F7F6387F87241429A08A5B4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0E62DD44554183A61BC61A /* libPods.a */; };
 		C34DE512182CDBE60012581F /* DumpYourPhotoApiEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C34DE511182CDBE60012581F /* DumpYourPhotoApiEngine.m */; };
 		C34EB5FB182EB37100807326 /* DumpYourPhoto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C34EB5F9182EB37100807326 /* DumpYourPhoto.xcdatamodeld */; };
-		C34EB604182EC7D400807326 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EB603182EC7D400807326 /* Album.m */; };
-		C34EB607182EC7D500807326 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EB606182EC7D500807326 /* Photo.m */; };
 		C34EB60A182EE6DF00807326 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EB609182EE6DF00807326 /* CoreDataHelper.m */; };
 		C34EB60C182EE74B00807326 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34EB60B182EE74B00807326 /* CoreData.framework */; };
 		C37074951827FC0000024CA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37074941827FC0000024CA4 /* Foundation.framework */; };
@@ -29,6 +27,9 @@
 		C37074BE1827FC0100024CA4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C37074BC1827FC0100024CA4 /* InfoPlist.strings */; };
 		C37074C01827FC0100024CA4 /* DumpYourPhotoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C37074BF1827FC0100024CA4 /* DumpYourPhotoTests.m */; };
 		C3C148A6182E304600F4413F /* CreateAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C148A5182E304600F4413F /* CreateAlbumViewController.m */; };
+		C3C155DA1833831600DBF4C8 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C155D91833831600DBF4C8 /* Photo.m */; };
+		C3C155DD1833831700DBF4C8 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C155DC1833831700DBF4C8 /* Album.m */; };
+		C3C155E0183393AC00DBF4C8 /* ImageCacher.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C155DF183393AC00DBF4C8 /* ImageCacher.m */; };
 		C3C84F1B182C2D2D003EAFD9 /* AlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C84F1A182C2D2D003EAFD9 /* AlbumsViewController.m */; };
 		C3CB6167183026FB00E149E7 /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB6166183026FB00E149E7 /* PhotosViewController.m */; };
 		C3F1AF0C18283E4A00B519FF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F1AF0B18283E4A00B519FF /* Security.framework */; };
@@ -50,10 +51,6 @@
 		C34DE510182CDBE60012581F /* DumpYourPhotoApiEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DumpYourPhotoApiEngine.h; path = Helpers/DumpYourPhotoApiEngine.h; sourceTree = "<group>"; };
 		C34DE511182CDBE60012581F /* DumpYourPhotoApiEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DumpYourPhotoApiEngine.m; path = Helpers/DumpYourPhotoApiEngine.m; sourceTree = "<group>"; };
 		C34EB5FA182EB37100807326 /* DumpYourPhoto.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DumpYourPhoto.xcdatamodel; sourceTree = "<group>"; };
-		C34EB602182EC7D400807326 /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Album.h; path = Models/Album.h; sourceTree = "<group>"; };
-		C34EB603182EC7D400807326 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Album.m; path = Models/Album.m; sourceTree = "<group>"; };
-		C34EB605182EC7D500807326 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Models/Photo.h; sourceTree = "<group>"; };
-		C34EB606182EC7D500807326 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = Models/Photo.m; sourceTree = "<group>"; };
 		C34EB608182EE6DF00807326 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataHelper.h; path = Helpers/CoreDataHelper.h; sourceTree = "<group>"; };
 		C34EB609182EE6DF00807326 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataHelper.m; path = Helpers/CoreDataHelper.m; sourceTree = "<group>"; };
 		C34EB60B182EE74B00807326 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -78,6 +75,12 @@
 		C37074BF1827FC0100024CA4 /* DumpYourPhotoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DumpYourPhotoTests.m; sourceTree = "<group>"; };
 		C3C148A4182E304600F4413F /* CreateAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAlbumViewController.h; sourceTree = "<group>"; };
 		C3C148A5182E304600F4413F /* CreateAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAlbumViewController.m; sourceTree = "<group>"; };
+		C3C155D81833831600DBF4C8 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Models/Photo.h; sourceTree = "<group>"; };
+		C3C155D91833831600DBF4C8 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = Models/Photo.m; sourceTree = "<group>"; };
+		C3C155DB1833831700DBF4C8 /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Album.h; path = Models/Album.h; sourceTree = "<group>"; };
+		C3C155DC1833831700DBF4C8 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Album.m; path = Models/Album.m; sourceTree = "<group>"; };
+		C3C155DE183393AC00DBF4C8 /* ImageCacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCacher.h; path = Helpers/ImageCacher.h; sourceTree = "<group>"; };
+		C3C155DF183393AC00DBF4C8 /* ImageCacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCacher.m; path = Helpers/ImageCacher.m; sourceTree = "<group>"; };
 		C3C84F19182C2D2D003EAFD9 /* AlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumsViewController.h; sourceTree = "<group>"; };
 		C3C84F1A182C2D2D003EAFD9 /* AlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsViewController.m; sourceTree = "<group>"; };
 		C3CB6165183026FB00E149E7 /* PhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosViewController.h; sourceTree = "<group>"; };
@@ -115,10 +118,10 @@
 		C34DE50C182CD6140012581F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C34EB605182EC7D500807326 /* Photo.h */,
-				C34EB606182EC7D500807326 /* Photo.m */,
-				C34EB602182EC7D400807326 /* Album.h */,
-				C34EB603182EC7D400807326 /* Album.m */,
+				C3C155DB1833831700DBF4C8 /* Album.h */,
+				C3C155DC1833831700DBF4C8 /* Album.m */,
+				C3C155D81833831600DBF4C8 /* Photo.h */,
+				C3C155D91833831600DBF4C8 /* Photo.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -130,6 +133,8 @@
 				C34DE511182CDBE60012581F /* DumpYourPhotoApiEngine.m */,
 				C34EB608182EE6DF00807326 /* CoreDataHelper.h */,
 				C34EB609182EE6DF00807326 /* CoreDataHelper.m */,
+				C3C155DE183393AC00DBF4C8 /* ImageCacher.h */,
+				C3C155DF183393AC00DBF4C8 /* ImageCacher.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -355,14 +360,15 @@
 				C3C84F1B182C2D2D003EAFD9 /* AlbumsViewController.m in Sources */,
 				C34EB5FB182EB37100807326 /* DumpYourPhoto.xcdatamodeld in Sources */,
 				C3C148A6182E304600F4413F /* CreateAlbumViewController.m in Sources */,
-				C34EB607182EC7D500807326 /* Photo.m in Sources */,
-				C34EB604182EC7D400807326 /* Album.m in Sources */,
 				C37074AB1827FC0100024CA4 /* ViewController.m in Sources */,
 				C37074A51827FC0100024CA4 /* AppDelegate.m in Sources */,
 				C37074A11827FC0100024CA4 /* main.m in Sources */,
 				C3CB6167183026FB00E149E7 /* PhotosViewController.m in Sources */,
 				C34EB60A182EE6DF00807326 /* CoreDataHelper.m in Sources */,
+				C3C155DA1833831600DBF4C8 /* Photo.m in Sources */,
+				C3C155E0183393AC00DBF4C8 /* ImageCacher.m in Sources */,
 				C34DE512182CDBE60012581F /* DumpYourPhotoApiEngine.m in Sources */,
+				C3C155DD1833831700DBF4C8 /* Album.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
