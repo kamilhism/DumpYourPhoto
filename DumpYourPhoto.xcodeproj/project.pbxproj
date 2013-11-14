@@ -26,6 +26,7 @@
 		C37074B61827FC0100024CA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37074981827FC0000024CA4 /* UIKit.framework */; };
 		C37074BE1827FC0100024CA4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C37074BC1827FC0100024CA4 /* InfoPlist.strings */; };
 		C37074C01827FC0100024CA4 /* DumpYourPhotoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C37074BF1827FC0100024CA4 /* DumpYourPhotoTests.m */; };
+		C3753D2518342BCA009742C4 /* PhotoViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3753D2418342BCA009742C4 /* PhotoViewerViewController.m */; };
 		C3C148A6182E304600F4413F /* CreateAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C148A5182E304600F4413F /* CreateAlbumViewController.m */; };
 		C3C155DA1833831600DBF4C8 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C155D91833831600DBF4C8 /* Photo.m */; };
 		C3C155DD1833831700DBF4C8 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C155DC1833831700DBF4C8 /* Album.m */; };
@@ -73,6 +74,8 @@
 		C37074BB1827FC0100024CA4 /* DumpYourPhotoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DumpYourPhotoTests-Info.plist"; sourceTree = "<group>"; };
 		C37074BD1827FC0100024CA4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C37074BF1827FC0100024CA4 /* DumpYourPhotoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DumpYourPhotoTests.m; sourceTree = "<group>"; };
+		C3753D2318342BCA009742C4 /* PhotoViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewerViewController.h; sourceTree = "<group>"; };
+		C3753D2418342BCA009742C4 /* PhotoViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewerViewController.m; sourceTree = "<group>"; };
 		C3C148A4182E304600F4413F /* CreateAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAlbumViewController.h; sourceTree = "<group>"; };
 		C3C148A5182E304600F4413F /* CreateAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAlbumViewController.m; sourceTree = "<group>"; };
 		C3C155D81833831600DBF4C8 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Models/Photo.h; sourceTree = "<group>"; };
@@ -187,6 +190,8 @@
 				C3C148A5182E304600F4413F /* CreateAlbumViewController.m */,
 				C3CB6165183026FB00E149E7 /* PhotosViewController.h */,
 				C3CB6166183026FB00E149E7 /* PhotosViewController.m */,
+				C3753D2318342BCA009742C4 /* PhotoViewerViewController.h */,
+				C3753D2418342BCA009742C4 /* PhotoViewerViewController.m */,
 				C37074AC1827FC0100024CA4 /* Images.xcassets */,
 				C370749B1827FC0100024CA4 /* Supporting Files */,
 				C34DE50C182CD6140012581F /* Models */,
@@ -358,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3C84F1B182C2D2D003EAFD9 /* AlbumsViewController.m in Sources */,
+				C3753D2518342BCA009742C4 /* PhotoViewerViewController.m in Sources */,
 				C34EB5FB182EB37100807326 /* DumpYourPhoto.xcdatamodeld in Sources */,
 				C3C148A6182E304600F4413F /* CreateAlbumViewController.m in Sources */,
 				C37074AB1827FC0100024CA4 /* ViewController.m in Sources */,

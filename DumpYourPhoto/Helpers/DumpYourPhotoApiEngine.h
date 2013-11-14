@@ -19,9 +19,10 @@
 
 + (void)getPhotosForAlbum:(Album *)album
                  callback:(void (^)(NSArray *array))callback;
-
 + (void)getImageFor:(Photo *)photo
            withSize:(NSString *)size
            callback:(void (^)(UIImage *image))callback;
++ (void)getPhotoData:(Photo *)photo
+                 callback:(void (^)(Photo *photoWithData))callback;
 
 @end

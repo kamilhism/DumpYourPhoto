@@ -147,6 +147,9 @@
                                 </view>
                                 <color key="backgroundColor" red="0.77401138641381995" green="0.91038977581521741" blue="0.34426040137172303" alpha="0.35000000000000003" colorSpace="calibratedRGB"/>
                                 <rect key="contentStretch" x="0.49999999999999994" y="0.0" width="1" height="1"/>
+                                <connections>
+                                    <segue destination="VhE-97-YoY" kind="push" identifier="viewPhoto" id="bxU-ue-n1d"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -210,6 +213,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEw-Rg-k0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1205" y="1514"/>
+        </scene>
+        <!--Photo Viewer View Controller - Photo Viewer-->
+        <scene sceneID="SUt-rZ-1My">
+            <objects>
+                <viewController title="Photo Viewer" id="VhE-97-YoY" customClass="PhotoViewerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Ih-EL-SEy"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z4C-z6-sig"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LLK-az-VDY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fsa-lI-plu">
+                                <rect key="frame" x="0.0" y="66" width="320" height="502"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvS-P9-0xv">
+                                <rect key="frame" x="0.0" y="495" width="320" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.26919157608695654" green="0.26919157608695654" blue="0.26919157608695654" alpha="0.58999999999999997" colorSpace="calibratedRGB"/>
+                                <rect key="contentStretch" x="1.3877787807814457e-17" y="0.0" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="V2o-WV-soB"/>
+                                    <constraint firstAttribute="height" constant="73" id="YHp-mA-Mrp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="1" green="1" blue="1" alpha="0.93000000000000005" colorSpace="calibratedRGB"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fsa-lI-plu" firstAttribute="leading" secondItem="LLK-az-VDY" secondAttribute="leading" id="3gr-es-fdU"/>
+                            <constraint firstItem="Z4C-z6-sig" firstAttribute="top" secondItem="Fsa-lI-plu" secondAttribute="bottom" id="E21-6v-4az"/>
+                            <constraint firstItem="Z4C-z6-sig" firstAttribute="top" secondItem="HvS-P9-0xv" secondAttribute="bottom" id="Hsj-rU-dQg"/>
+                            <constraint firstItem="Fsa-lI-plu" firstAttribute="top" secondItem="3Ih-EL-SEy" secondAttribute="bottom" constant="2" id="JXs-wW-Jij"/>
+                            <constraint firstAttribute="trailing" secondItem="Fsa-lI-plu" secondAttribute="trailing" id="Xl0-cE-bzE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="uAo-G2-ck7"/>
+                    <connections>
+                        <outlet property="viewerImage" destination="Fsa-lI-plu" id="7WR-Ca-v6w"/>
+                        <outlet property="viewerImageTitle" destination="HvS-P9-0xv" id="sP4-bI-Q4p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7wk-bt-SSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1777" y="1514"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EV3-f8-LlJ">

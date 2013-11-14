@@ -10,6 +10,7 @@
 #import "DumpYourPhotoApiEngine.h"
 #import "Photo.h"
 #import "ImageCacher.h"
+#import "PhotoViewerViewController.h"
 
 @interface PhotosViewController ()
 
@@ -64,6 +65,18 @@
     }
     
     return cell;
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"viewPhoto"]) {
+        UICollectionViewCell *cell = sender;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+        int rowNumber = indexPath.row;
+        Photo *photo = self.photosArray[rowNumber];
+        PhotoViewerViewController *controller = segue.destinationViewController;
+        controller.selectedPhoto = photo;
+    }
 }
 
 @end

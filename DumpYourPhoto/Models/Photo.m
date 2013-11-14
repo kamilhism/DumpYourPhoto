@@ -21,11 +21,12 @@
 @dynamic album;
 
 - (void)setupWithObject:(id)photoData{
-    /*
-    self.title = photoData[@"title"];
-    self.photoId = [NSNumber numberWithInteger:[photoData[@"id"] integerValue]];
-    self.viewsCount = [NSNumber numberWithInteger:[photoData[@"views"] integerValue]];
-    */ // error in dumpyourphoto site api - only url fields in json response
+    
+    if (!!photoData[@"title"]) { // error in site api - only url fields in json response of get all photos request
+        self.title = photoData[@"title"];
+        self.photoId = [NSNumber numberWithInteger:[photoData[@"id"] integerValue]];
+        self.viewsCount = [NSNumber numberWithInteger:[photoData[@"views"] integerValue]];
+    }
     
     NSURL *imageUrl = [NSURL URLWithString:photoData[@"url"][@"full"]];
     self.photoHash = [[imageUrl pathComponents] objectAtIndex:1];

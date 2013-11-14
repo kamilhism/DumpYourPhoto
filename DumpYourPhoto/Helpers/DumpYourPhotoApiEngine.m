@@ -78,6 +78,18 @@
     }];
 }
 
++ (void)getPhotoData:(Photo *)photo
+            callback:(void (^)(Photo *photoWithData))callback {
+    NSString *urlString = [NSString stringWithFormat:@"%@/photo/%@", apiUrl, photo.photoHash];
+    
+    [[self requestManager] GET:urlString parameters:[self apiKeyAsParam] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        callback([self.class photoData:responseObject forPhoto:photo]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
 + (NSArray *)albumsArray:(id)albums {
     [Album clearAlbums];
     
@@ -112,6 +124,12 @@
     [[CoreDataHelper sharedInstance].moc save:nil];
     
     return photosModels;
+}
+
++ (Photo *)photoData:(id)photoData forPhoto:(Photo *)photoModel {
+    [photoModel setupWithObject:photoData];
+    [[CoreDataHelper sharedInstance].moc save:nil];
+    return photoModel;
 }
 
 + (AFHTTPRequestOperationManager *) requestManager {
