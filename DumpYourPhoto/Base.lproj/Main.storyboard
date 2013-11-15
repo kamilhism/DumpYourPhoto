@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_big" translatesAutoresizingMaskIntoConstraints="NO" id="mul-MA-7Kd">
-                                <rect key="frame" x="20" y="216" width="280" height="162"/>
+                                <rect key="frame" x="20" y="220" width="280" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
