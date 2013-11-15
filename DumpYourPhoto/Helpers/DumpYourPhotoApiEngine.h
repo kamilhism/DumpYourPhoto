@@ -23,6 +23,10 @@
            withSize:(NSString *)size
            callback:(void (^)(UIImage *image))callback;
 + (void)getPhotoData:(Photo *)photo
-                 callback:(void (^)(Photo *photoWithData))callback;
+            callback:(void (^)(Photo *photoWithData))callback;
++ (void)uploadPhoto:(NSData *)imageData
+         withName:(NSString *)imageName
+           forAlbum:(Album *)album
+           callback:(void (^)(bool success, NSString *error))callback;
 
 @end

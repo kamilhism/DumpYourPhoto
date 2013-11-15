@@ -84,9 +84,28 @@
     
     [[self requestManager] GET:urlString parameters:[self apiKeyAsParam] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
-        callback([self.class photoData:responseObject forPhoto:photo]);
+        callback([self.class updatePhotoWith:responseObject forPhoto:photo]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+    }];
+}
+
++ (void)uploadPhoto:(NSData *)imageData
+           withName:(NSString *)imageName
+           forAlbum:(Album *)album
+           callback:(void (^)(bool success, NSString *error))callback  {
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@/albums/%@/photos?api_key=%@", apiUrl, album.albumHash, appDelegate.apiKey];
+    
+    [[self requestManager] POST:urlString parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:imageData name:@"files" fileName:imageName mimeType:@""];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Success: %@", responseObject);
+        [self newPhotoWith:responseObject[0] forAlbum:album]; // just per one photo upload yet
+        callback(YES, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        callback(NO, error.localizedDescription);
     }];
 }
 
@@ -121,15 +140,26 @@
         
         [album addPhotosObject:photoModel];
     }
+    album.photosCount = [NSNumber numberWithInt:photosModels.count];
     [[CoreDataHelper sharedInstance].moc save:nil];
     
     return photosModels;
 }
 
-+ (Photo *)photoData:(id)photoData forPhoto:(Photo *)photoModel {
++ (Photo *)updatePhotoWith:(id)photoData forPhoto:(Photo *)photoModel {
     [photoModel setupWithObject:photoData];
     [[CoreDataHelper sharedInstance].moc save:nil];
     return photoModel;
+}
+
++ (void)newPhotoWith:(id)photoData forAlbum:(Album *)album {
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Photo" inManagedObjectContext:[CoreDataHelper sharedInstance].moc];
+    Photo *photoModel = [[Photo alloc] initWithEntity:entity insertIntoManagedObjectContext:[CoreDataHelper sharedInstance].moc];
+    [photoModel setupWithObject:photoData];
+    [album addPhotosObject:photoModel];
+    int increasedPhotosCount = [album.photosCount intValue];
+    album.photosCount = [NSNumber numberWithInt:increasedPhotosCount + 1]; // wtf? work with nsnumber is so inconvenient
+    [[CoreDataHelper sharedInstance].moc save:nil];
 }
 
 + (AFHTTPRequestOperationManager *) requestManager {

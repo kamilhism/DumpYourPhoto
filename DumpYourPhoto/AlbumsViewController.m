@@ -45,10 +45,8 @@
 
 -(void)setupAlbumsFromDatabase {
     NSArray *albums = [Album findAllAlbums];
-    if ([self albumsArray].count != albums.count) {
-        self.albumsArray = [albums mutableCopy];
-        [self.tableView reloadData];
-    }
+    self.albumsArray = [albums mutableCopy];
+    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

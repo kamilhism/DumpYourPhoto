@@ -11,6 +11,7 @@
 #import "Photo.h"
 #import "ImageCacher.h"
 #import "PhotoViewerViewController.h"
+#import "CreatePhotoViewController.h"
 
 @interface PhotosViewController ()
 
@@ -28,16 +29,18 @@
     
     self.navigationItem.title = [self.album name];
     
-    [self setupPhotosFromDatabase];
-    
     [DumpYourPhotoApiEngine getPhotosForAlbum:[self album] callback:^(NSArray *array) {
-        self.photosArray = [array mutableCopy];
-        [self.collectionView reloadData];
+        [self setupPhotosFromDatabase];
     }];
 }
 
+-(void) viewDidAppear:(BOOL)animated {
+    [self setupPhotosFromDatabase];
+}
+
 -(void)setupPhotosFromDatabase {
-    self.photosArray = [[[self.album photos] allObjects] mutableCopy];
+    self.photosArray = [[Photo findAllPhotosIn:self.album] mutableCopy];
+    [self.collectionView reloadData];
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -76,6 +79,11 @@
         Photo *photo = self.photosArray[rowNumber];
         PhotoViewerViewController *controller = segue.destinationViewController;
         controller.selectedPhoto = photo;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"createPhoto"]) {
+        CreatePhotoViewController *controller = segue.destinationViewController;
+        controller.album = self.album;
     }
 }
 

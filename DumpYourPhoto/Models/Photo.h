@@ -24,5 +24,6 @@
 - (NSString *)imageUrl:(NSString *)imageSize;
 
 + (void)clearPhotos;
++ (NSArray *)findAllPhotosIn:(Album *)album;
 
 @end

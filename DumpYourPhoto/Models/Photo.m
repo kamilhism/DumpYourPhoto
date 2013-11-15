@@ -41,6 +41,12 @@
     }
 }
 
++ (NSArray *)findAllPhotosIn:(Album *)album {
+    NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"fileName" ascending:YES];
+    NSArray *photos = [[[Album findAlbumWithId:album.albumId] photos] allObjects];
+    return [photos sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortByName]];
+}
+
 - (NSString *)imageUrl:(NSString *)imageSize {
     imageSize = [imageSize isEqualToString:@"full"] ? @"" : [imageSize stringByAppendingString:@"/"];
     return [NSString stringWithFormat:@"http://static.dyp.im/%@/%@%@", self.photoHash, imageSize, self.fileName];

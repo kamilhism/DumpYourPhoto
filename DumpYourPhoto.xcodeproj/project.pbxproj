@@ -33,6 +33,7 @@
 		C3C155E0183393AC00DBF4C8 /* ImageCacher.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C155DF183393AC00DBF4C8 /* ImageCacher.m */; };
 		C3C84F1B182C2D2D003EAFD9 /* AlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C84F1A182C2D2D003EAFD9 /* AlbumsViewController.m */; };
 		C3CB6167183026FB00E149E7 /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB6166183026FB00E149E7 /* PhotosViewController.m */; };
+		C3D6CC2B18357960004575C8 /* CreatePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D6CC2A18357960004575C8 /* CreatePhotoViewController.m */; };
 		C3F1AF0C18283E4A00B519FF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F1AF0B18283E4A00B519FF /* Security.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,8 @@
 		C3C84F1A182C2D2D003EAFD9 /* AlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsViewController.m; sourceTree = "<group>"; };
 		C3CB6165183026FB00E149E7 /* PhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosViewController.h; sourceTree = "<group>"; };
 		C3CB6166183026FB00E149E7 /* PhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosViewController.m; sourceTree = "<group>"; };
+		C3D6CC2918357960004575C8 /* CreatePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatePhotoViewController.h; sourceTree = "<group>"; };
+		C3D6CC2A18357960004575C8 /* CreatePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePhotoViewController.m; sourceTree = "<group>"; };
 		C3F1AF0B18283E4A00B519FF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -192,6 +195,8 @@
 				C3CB6166183026FB00E149E7 /* PhotosViewController.m */,
 				C3753D2318342BCA009742C4 /* PhotoViewerViewController.h */,
 				C3753D2418342BCA009742C4 /* PhotoViewerViewController.m */,
+				C3D6CC2918357960004575C8 /* CreatePhotoViewController.h */,
+				C3D6CC2A18357960004575C8 /* CreatePhotoViewController.m */,
 				C37074AC1827FC0100024CA4 /* Images.xcassets */,
 				C370749B1827FC0100024CA4 /* Supporting Files */,
 				C34DE50C182CD6140012581F /* Models */,
@@ -371,6 +376,7 @@
 				C37074A11827FC0100024CA4 /* main.m in Sources */,
 				C3CB6167183026FB00E149E7 /* PhotosViewController.m in Sources */,
 				C34EB60A182EE6DF00807326 /* CoreDataHelper.m in Sources */,
+				C3D6CC2B18357960004575C8 /* CreatePhotoViewController.m in Sources */,
 				C3C155DA1833831600DBF4C8 /* Photo.m in Sources */,
 				C3C155E0183393AC00DBF4C8 /* ImageCacher.m in Sources */,
 				C34DE512182CDBE60012581F /* DumpYourPhotoApiEngine.m in Sources */,
